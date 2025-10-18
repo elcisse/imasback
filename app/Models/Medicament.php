@@ -46,4 +46,12 @@ class Medicament extends Model
         'actif' => 'boolean',
         'prix_reference_temp' => 'decimal:2',
     ];
+
+    /**
+     * Get the pharmacy voucher lines that reference the medicament.
+     */
+    public function bonPharmacieLignes()
+    {
+        return $this->hasMany(BonPharmacieLigne::class);
+    }
 }

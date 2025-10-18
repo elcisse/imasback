@@ -76,4 +76,20 @@ class Prestataire extends Model
     {
         return $this->hasMany(LettreGarantie::class);
     }
+
+    /**
+     * Get the pharmacy vouchers addressed to the prestataire.
+     */
+    public function bonsPharmacie()
+    {
+        return $this->hasMany(BonPharmacie::class);
+    }
+
+    /**
+     * Get the invoices issued by the prestataire.
+     */
+    public function factures()
+    {
+        return $this->hasMany(Facture::class);
+    }
 }

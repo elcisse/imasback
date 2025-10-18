@@ -52,4 +52,12 @@ class AyantDroit extends Model
     {
         return $this->hasMany(LettreGarantie::class);
     }
+
+    /**
+     * Get the pharmacy vouchers associated with this beneficiary.
+     */
+    public function bonsPharmacie()
+    {
+        return $this->hasMany(BonPharmacie::class);
+    }
 }

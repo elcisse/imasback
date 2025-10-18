@@ -83,4 +83,20 @@ class Adherent extends Model
     {
         return $this->hasMany(LettreGarantie::class);
     }
+
+    /**
+     * Get the pharmacy vouchers related to the adherent.
+     */
+    public function bonsPharmacie()
+    {
+        return $this->hasMany(BonPharmacie::class);
+    }
+
+    /**
+     * Get the contribution emissions linked to the adherent.
+     */
+    public function emissionCotisations()
+    {
+        return $this->hasMany(EmissionCotisation::class);
+    }
 }

@@ -2,8 +2,14 @@
 
 use App\Http\Controllers\AdherentController;
 use App\Http\Controllers\AntenneController;
-use App\Http\Controllers\ClassificationController;
 use App\Http\Controllers\AyantDroitController;
+use App\Http\Controllers\BonPharmacieController;
+use App\Http\Controllers\BonPharmacieLigneController;
+use App\Http\Controllers\EmissionCotisationController;
+use App\Http\Controllers\EncaissementCotisationController;
+use App\Http\Controllers\FactureController;
+use App\Http\Controllers\FactureLigneController;
+use App\Http\Controllers\ClassificationController;
 use App\Http\Controllers\CommuneController;
 use App\Http\Controllers\ConventionEntrepriseController;
 use App\Http\Controllers\ConventionPharmacieController;
@@ -28,6 +34,17 @@ Route::apiResource('medicaments', MedicamentController::class);
 Route::apiResource('adherents', AdherentController::class);
 Route::apiResource('ayants-droit', AyantDroitController::class)
     ->parameters(['ayants-droit' => 'ayant_droit']);
+Route::apiResource('bons-pharmacie', BonPharmacieController::class)
+    ->parameters(['bons-pharmacie' => 'bon_pharmacie']);
+Route::apiResource('bon-pharmacie-lignes', BonPharmacieLigneController::class)
+    ->parameters(['bon-pharmacie-lignes' => 'bon_pharmacie_ligne']);
+Route::apiResource('emission-cotisations', EmissionCotisationController::class)
+    ->parameters(['emission-cotisations' => 'emission_cotisation']);
+Route::apiResource('encaissement-cotisations', EncaissementCotisationController::class)
+    ->parameters(['encaissement-cotisations' => 'encaissement_cotisation']);
+Route::apiResource('factures', FactureController::class);
+Route::apiResource('facture-lignes', FactureLigneController::class)
+    ->parameters(['facture-lignes' => 'facture_ligne']);
 Route::apiResource('lettres-garantie', LettreGarantieController::class)
     ->parameters(['lettres-garantie' => 'lettre_garantie']);
 Route::apiResource('lettres-garantie-lignes', LettreGarantieLigneController::class)

@@ -89,4 +89,28 @@ class Mutuelle extends Model
     {
         return $this->hasMany(LettreGarantie::class);
     }
+
+    /**
+     * Get the pharmacy vouchers issued by the mutuelle.
+     */
+    public function bonsPharmacie()
+    {
+        return $this->hasMany(BonPharmacie::class);
+    }
+
+    /**
+     * Get the contribution emissions for the mutuelle.
+     */
+    public function emissionCotisations()
+    {
+        return $this->hasMany(EmissionCotisation::class);
+    }
+
+    /**
+     * Get the invoices issued to the mutuelle.
+     */
+    public function factures()
+    {
+        return $this->hasMany(Facture::class);
+    }
 }
