@@ -5,9 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Mutuelle extends Model
+class Prestataire extends Model
 {
     use HasFactory;
+
+    public const TYPE_STRUCTURE_SANITAIRE = 'Structure Sanitaire';
+    public const TYPE_PHARMACIE = 'Pharmacie';
 
     /**
      * The attributes that are mass assignable.
@@ -15,13 +18,13 @@ class Mutuelle extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'commune_id',
+        'department_id',
+        'classification_id',
+        'type',
         'denomination',
-        'sigle',
         'adresse',
         'telephone',
         'email',
-        'numero_agrement',
         'desactive',
     ];
 
@@ -35,23 +38,23 @@ class Mutuelle extends Model
     ];
 
     /**
-     * Get the commune that owns the mutuelle.
+     * Get the department that owns the prestataire.
      */
-    public function commune()
+    public function department()
     {
-        return $this->belongsTo(Commune::class);
+        return $this->belongsTo(Department::class);
     }
 
     /**
-     * Get the antennes for the mutuelle.
+     * Get the classification associated with the prestataire.
      */
-    public function antennes()
+    public function classification()
     {
-        return $this->hasMany(Antenne::class);
+        return $this->belongsTo(Classification::class);
     }
 
     /**
-     * Get the structure sanitaire conventions for the mutuelle.
+     * Get the structure sanitaire conventions for the prestataire.
      */
     public function structureConventions()
     {
@@ -59,7 +62,7 @@ class Mutuelle extends Model
     }
 
     /**
-     * Get the pharmacy conventions for the mutuelle.
+     * Get the pharmacy conventions for the prestataire.
      */
     public function pharmacieConventions()
     {
@@ -67,23 +70,7 @@ class Mutuelle extends Model
     }
 
     /**
-     * Get the enterprise conventions for the mutuelle.
-     */
-    public function entrepriseConventions()
-    {
-        return $this->hasMany(ConventionEntreprise::class);
-    }
-
-    /**
-     * Get the adherents associated with the mutuelle.
-     */
-    public function adherents()
-    {
-        return $this->hasMany(Adherent::class);
-    }
-
-    /**
-     * Get the letters of guarantee issued by the mutuelle.
+     * Get the letters of guarantee addressed to the prestataire.
      */
     public function lettresGarantie()
     {

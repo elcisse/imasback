@@ -34,4 +34,12 @@ class Commune extends Model
     {
         return $this->hasMany(Mutuelle::class);
     }
+
+    /**
+     * Get the adherents belonging to the commune.
+     */
+    public function adherents()
+    {
+        return $this->hasMany(Adherent::class);
+    }
 }

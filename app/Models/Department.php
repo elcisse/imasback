@@ -34,4 +34,28 @@ class Department extends Model
     {
         return $this->hasMany(Commune::class);
     }
+
+    /**
+     * Get the antennes for the department.
+     */
+    public function antennes()
+    {
+        return $this->hasMany(Antenne::class);
+    }
+
+    /**
+     * Get the enterprises for the department.
+     */
+    public function entreprises()
+    {
+        return $this->hasMany(Entreprise::class);
+    }
+
+    /**
+     * Get the prestataires for the department.
+     */
+    public function prestataires()
+    {
+        return $this->hasMany(Prestataire::class);
+    }
 }
